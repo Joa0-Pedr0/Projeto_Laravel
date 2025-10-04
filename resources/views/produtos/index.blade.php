@@ -5,7 +5,7 @@
     <p style="color: green;">{{ session('success') }}</p>
 @endif
 
-<table border="1" cellpadding="5">
+<table border="2" cellpadding="5">
     <tr>
         <th>ID</th><th>Nome</th><th>Qtd</th><th>Preço</th><th>Ações</th>
     </tr>
@@ -18,7 +18,7 @@
             <td>R$ {{ $p->preco }}</td>
             <td>
                 <a href="{{ route('produtos.edit', $p) }}">Editar</a>
-                
+
                 <form action="{{ route('produtos.destroy', $p) }}" method="POST" style="display:inline">
                     @csrf @method('DELETE')
                     <button type="submit">Excluir</button>
