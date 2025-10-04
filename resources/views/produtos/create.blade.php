@@ -10,7 +10,7 @@
 <body>
     
 <h1>Novo Produto</h1>
-<form action="{{ route('produtos.store') }}" method="POST">
+<form class="form" action="{{ route('produtos.store') }}" method="POST">
     @csrf
     <label for="nome">Nome:</label>
     <input type="text" id="nome" name="nome"><br>
@@ -21,6 +21,7 @@
     <label for="preco">Preço:</label>
     <input type="text" id="preco" name="preco"><br>
     <button type="submit">Cadastrar</button>
+    <a href="{{ route('produtos.index') }}">Voltar</a>
 </form>
 
 </body>
