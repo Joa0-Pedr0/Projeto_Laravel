@@ -10,6 +10,7 @@ class ProdutoController extends Controller
     public function index()
     {
         $produtos = Produto::all();
+        
         return view('produtos.index', compact('produtos'));
     }
 
@@ -21,7 +22,8 @@ class ProdutoController extends Controller
     public function store(Request $request)
     {
         Produto::create($request->all());
-        return redirect()->route('produtos.index');
+
+        return redirect()->route('produtos.index')->with('success', 'Produto criado com sucesso!');
     }
 
     public function edit(Produto $produto)
@@ -32,12 +34,14 @@ class ProdutoController extends Controller
     public function update(Request $request, Produto $produto)
     {
         $produto->update($request->all());
-        return redirect()->route('produtos.index');
+
+        return redirect()->route('produtos.index')->with('success', 'Produto atualizado com sucesso!');
     }
 
     public function destroy(Produto $produto)
     {
         $produto->delete();
-        return redirect()->route('produtos.index');
+
+        return redirect()->route('produtos.index')->with('success', 'Produto excluído com sucesso!');
     }
 }
