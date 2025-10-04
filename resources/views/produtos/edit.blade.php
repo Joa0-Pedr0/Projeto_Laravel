@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Editar Produto</h1>
-<form action="{{ route('produtos.update', $produto) }}" method="POST">
+<form class="form" action="{{ route('produtos.update', $produto) }}" method="POST">
     @csrf @method('PUT')
     <label for="nome">Nome:</label>
     <input type="text" id="nome" name="nome" value="{{ $produto->nome }}"><br>
@@ -17,6 +17,7 @@
     <label for="preco">Preço:</label>
     <input type="text" name="preco"  id= "preco" value="{{ $produto->preco }}"><br>
     <button type="submit">Salvar</button>
+    <a href="{{ route('produtos.index') }}">Voltar</a>
 </form>
 
 </body>
