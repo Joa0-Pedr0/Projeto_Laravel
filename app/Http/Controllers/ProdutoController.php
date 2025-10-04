@@ -10,7 +10,7 @@ class ProdutoController extends Controller
     public function index()
     {
         $produtos = Produto::all();
-        
+
         return view('produtos.index', compact('produtos'));
     }
 
@@ -36,6 +36,7 @@ class ProdutoController extends Controller
         $produto->update($request->all());
 
         return redirect()->route('produtos.index')->with('success', 'Produto atualizado com sucesso!');
+
     }
 
     public function destroy(Produto $produto)
